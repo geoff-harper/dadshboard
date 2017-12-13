@@ -3,29 +3,104 @@
     <table class="stock-table">
       <thead>
         <th>Name</th>
-        <th>Quantity</th>
         <th>Size</th>
+        <th>Quantity</th>
+        <th></th>
       </thead>
-      <tbody>
-        <tr>
-          <td>Prokchop</td>
-          <td>3</td>
-          <td>Small, Large</td>
-        </tr>
-      </tbody>
+      <FreezerStockRow
+        v-for="type in stock"
+        :key="type.id"
+        @delete="deleteVariation"
+        :type="type"></FreezerStockRow>
+      <FreezerStockInput @add="addVariation"></FreezerStockInput>
     </table>
   </section>
 </template>
 
 <script>
+import FreezerStockRow from './FreezerStockRow'
+import FreezerStockInput from './FreezerStockInput'
+
+let itemCounter = 0
+
 export default {
   name: 'FreezerStock',
+  components: {
+    FreezerStockRow,
+    FreezerStockInput
+  },
+  methods: {
+    addVariation ({newNameText, newSizeOption, newQuantityNum}) {
+      for (let type of this.stock) {
+        if (type.name === newNameText) {
+          type.variations.push({
+            size: newSizeOption,
+            quantity: newQuantityNum
+          })
+          return
+        }
+      }
+      this.stock.push({
+        id: ++itemCounter,
+        name: newNameText,
+        variations: [
+          {
+            size: newSizeOption,
+            quantity: newQuantityNum
+          }
+        ]
+      })
+    },
+    deleteVariation ([typeId, variationId]) {
+      for (let type of this.stock) {
+        if (type.id === typeId) {
+          type.variations = type.variations.filter((variation, i) => {
+            return i !== variationId
+          })
+          return
+        }
+      }
+    }
+  },
   data () {
-    return {}
+    return {
+      stock: [
+        {
+          id: ++itemCounter,
+          name: 'Prokchop',
+          variations: [
+            {
+              size: 'Large',
+              quantity: 2
+            },
+            {
+              size: 'Medium',
+              quantity: 2
+            }
+          ]
+        },
+        {
+          id: ++itemCounter,
+          name: 'Boeuf',
+          variations: [
+            {
+              size: 'Medium',
+              quantity: 1
+            },
+            {
+              size: 'Small',
+              quantity: 3
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 </script>
 
 <style>
-
+table {
+  width: 100%;
+}
 </style>

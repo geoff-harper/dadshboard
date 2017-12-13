@@ -18,6 +18,7 @@ import ReminderInput from './ReminderInput'
 let currentReminderId = 0
 
 export default {
+  name: 'Reminders',
   components: {
     ReminderItem,
     ReminderInput
