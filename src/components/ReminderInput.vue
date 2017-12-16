@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'ReminderInput',
   data () {
     return {
       newReminderText: '',

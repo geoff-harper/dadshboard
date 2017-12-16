@@ -2,13 +2,25 @@
   <section id="weather" class="card card--small-view">
     <img :src="weather.icon_url" :alt="weather.icon" class="weather__icon">
     <h2 class="weather__condition">{{ weather.conditions }}</h2>
-    <figure class="weather__temp">{{ weather.high.celsius }} / {{ weather.low.celsius }}</figure>
+    <p class="weather__temp">{{ weather.high.fahrenheit }}&#8457; / {{ weather.low.fahrenheit }}&#8457;</p>
+    <div class="weather__other">
+      <div class="weather__pop">
+        <h3 class="weather__small-title">Precipitation</h3>
+        {{ weather.pop }}%
+      </div>
+      <div class="weather__humidity">
+        <h3 class="weather__small-title">Humidity</h3>
+        {{ weather.avehumidity }}%
+      </div>
+      <div class="weather__wind">
+        <h3 class="weather__small-title">Wind Conditions</h3>
+        {{ weather.avewind.mph }}m/h {{ weather.avewind.dir }}
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-// http://api.wunderground.com/api/f749d373cd615180/geolookup/q/Canada/Gananoque.json
-
 export default {
   name: 'Weather',
   data () {
@@ -17,8 +29,14 @@ export default {
         icon_url: '',
         icon: '',
         conditions: '',
-        high: { celsius: '' },
-        low: { celsius: '' }
+        high: { fahrenheit: '' },
+        low: { fahrenheit: '' },
+        pop: '',
+        avehumidity: '',
+        avewind: {
+          dir: '',
+          mph: ''
+        }
       }
     }
   },
@@ -28,6 +46,9 @@ export default {
         .then(async res => {
           const data = await res.json()
           this.weather = data.forecast.simpleforecast.forecastday[0]
+        })
+        .then(() => {
+          this.weather.avewind.dir = this.weather.avewind.dir.slice(1)
         })
         .catch(err => { console.log(err) })
     }

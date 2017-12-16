@@ -1,40 +1,41 @@
 <template>
   <section id="blue-jays" class="card card--small-view">
-    <figure class="score__team">
-      <div class="score___team-info">
-        <h2 class="score___team-name">{{ `${score.away_team_city} ${score.away_team_name}` }}</h2>
-        <p class="score___team-record">{{ score.away_win }} - {{ score.away_loss }}</p>
-      </div>
-      <div class="score__team-runs">{{ score.away_team_runs }}</div>
-    </figure>
-    <figure class="score__team">
-      <div class="score___team-info">
-        <h2 class="score___team-name">{{ score.home_team_city + ' ' + score.home_team_name }}</h2>
-        <p class="score___team-record">{{ score.home_win }} - {{ score.home_loss }}</p>
-      </div>
-      <div class="score__team-runs">{{ score.home_team_runs }}</div>
-    </figure>
+    <BlueJaysTeam :team="score.teams[0]"></BlueJaysTeam>
+    <BlueJaysTeam :team="score.teams[1]"></BlueJaysTeam>
     <p class="game-status">{{ played ? score.status : `${score.time} ${score.ampm}` }}</p>
   </section>
 </template>
 
 <script>
+import BlueJaysTeam from './BlueJaysTeam'
+
 export default {
   name: 'BlueJays',
+  components: {
+    BlueJaysTeam
+  },
   data () {
     return {
       played: true,
       score: {
-        away_win: '',
-        away_loss: '',
-        away_team_city: '',
-        away_team_name: '',
-        away_team_runs: '',
-        home_win: '',
-        home_loss: '',
-        home_team_city: '',
-        home_team_name: '',
-        home_team_runs: '',
+        teams: [
+          {
+            visitiness: 'away',
+            win: '',
+            loss: '',
+            team_city: '',
+            team_name: '',
+            team_runs: ''
+          },
+          {
+            visitiness: 'home',
+            win: '',
+            loss: '',
+            team_city: '',
+            team_name: '',
+            team_runs: ''
+          }
+        ],
         status: '',
         time: '',
         ampm: ''
@@ -48,10 +49,20 @@ export default {
       const path = `year_2017/month_06/day_05/miniscoreboard.json`
       fetch(`http://gd2.mlb.com/components/game/mlb/${path}`)
         .then(async res => {
-          const data = await res.json()
-          this.score = data.data.games.game.filter(obj => {
+          let data = await res.json()
+          data = data.data.games.game.filter(obj => {
             return (obj.away_name_abbrev === 'TOR' || obj.home_name_abbrev === 'TOR')
           })[0]
+          for (let team of this.score.teams) {
+            for (let prop in team) {
+              if (prop === 'visitiness') continue
+              let key = `${team.visitiness}_${prop}`
+              team[prop] = data[key]
+            }
+          }
+          this.score.status = data.status
+          this.score.time = data.time
+          this.score.ampm = data.ampm
         })
         .catch(err => { console.log(err) })
       this.setStatus()

@@ -41,7 +41,7 @@ export default {
     return {
       allReminders: [
         {
-          text: 'Make a to-do list knockoff with the Vue.js framework',
+          text: 'Water Christmas tree',
           id: ++currentReminderId
         }
       ]
