@@ -1,7 +1,7 @@
 <template>
   <tr>
-    <td>{{ heartDataRow.date }}</td>
-    <td>{{ heartDataRow.time }}</td>
+    <td>{{ formatDate() }}</td>
+    <td>{{ formatTime() }}</td>
     <td>{{ heartDataRow.systolic }}</td>
     <td>{{ heartDataRow.dystolic }}</td>
     <td>{{ heartDataRow.pulse }}</td>
@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'BloodPressureTableRow',
   props: {
@@ -18,6 +20,14 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    formatDate () {
+      return moment(this.heartDataRow.date).format('ddd, MMM DD')
+    },
+    formatTime () {
+      return moment(this.heartDataRow.time, 'h:mm A').format('h:mm A')
+    }
   }
 }
 </script>

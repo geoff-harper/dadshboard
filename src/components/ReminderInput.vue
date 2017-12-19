@@ -7,7 +7,7 @@
       :class="['reminder-input', hasError ? 'error' : '']"
       type="text"
       placeholder="">
-    <button @click="emitReminder" class="reminder-add">Add Reminder</button>
+    <button @click="emitReminder" class="reminder-add">&plus;</button>
   </div>
 </template>
 

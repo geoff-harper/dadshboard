@@ -4,64 +4,68 @@
         v-model="newDateText"
         class="blood-pressure-form__field"
         type="text"
-        placeholder="">
+        placeholder=" ">
       <input
         v-model="newTimeText"
         class="blood-pressure-form__field"
         type="text"
-        placeholder="">
+        placeholder=" ">
       <input
         v-model.number="newSystolicText"
         @click="newSystolicText = ''"
         class="blood-pressure-form__field"
         type="text"
-        placeholder="">
+        placeholder=" ">
       <input
         v-model.number="newDystolicText"
         @click="newDystolicText = ''"
         class="blood-pressure-form__field"
         type="text"
-        placeholder="">
+        placeholder=" ">
       <input
         v-model.number="newPulseText"
         @click="newPulseText = ''"
         class="blood-pressure-form__field"
         type="text"
-        placeholder="">
+        placeholder=" ">
     <button @click="emitReading" class="reading-add">&plus;</button>
   </form>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'BloodPressureInput',
   data () {
     return {
       newDateText: this.setDate(),
       newTimeText: this.setTime(),
-      newSystolicText: '',
-      newDystolicText: '',
-      newPulseText: '',
+      newSystolicText: 0,
+      newDystolicText: 0,
+      newPulseText: 0,
       hasError: false
     }
   },
   methods: {
     emitReading () {
-      console.log(this.newDateText)
-      console.log(this.newTimeText)
-      console.log(this.newSystolicText)
-      console.log(this.newDystolicText)
-      console.log(this.newPulseText)
+      // console.log(moment(this.newDateText).isValid())
+      // console.log(moment(this.newTimeText, 'h:mm A').isValid())
+      let reading = {
+        date: moment(this.newDateText).format('YYYY-MM-DD'),
+        time: moment(this.newTimeText, 'h:mm A').format('h:mm A'),
+        systolic: this.newSystolicText.toFixed(2),
+        dystolic: this.newDystolicText.toFixed(2),
+        pulse: this.newPulseText.toFixed(2)
+      }
+
+      this.$emit('add', reading)
     },
     setDate () {
-      const today = new Date()
-      const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
-      return `${today.toLocaleDateString('zh-Hans-CN', options)}`
+      return moment().format('YYYY-MM-DD')
     },
     setTime () {
-      const now = new Date()
-      const options = { hour: '2-digit', minute: '2-digit' }
-      return `${now.toLocaleTimeString('en-US', options)}`
+      return moment().format('h:mm A')
     }
   }
 }
