@@ -1,7 +1,7 @@
 <template>
   <section id="blood-pressure" class="card card--small-view">
     <BloodPressureTabs @changeView="changeView"></BloodPressureTabs>
-    <figure class="blood-pressure__data-view" ref="chartContainer">
+    <figure :class="[view === 0 ? 'blood-pressure__data-view--table' : null, 'blood-pressure__data-view']" ref="chartContainer">
       <BloodPressureTable v-if="view === 0" :heartData="heartData"></BloodPressureTable>
       <vue-c3 v-show="view === 1" :handler="handler"></vue-c3>
     </figure>
@@ -30,12 +30,239 @@ export default {
     return {
       view: 0, // Table = 0, Graph = 1
       handler: new Vue(),
-      heartData: {
-        xAxis: ['2017-12-01 07:45', '2017-12-02 07:45', '2017-12-03 07:45', '2017-12-04 07:45', '2017-12-05 07:45', '2017-12-06 07:45', '2017-12-07 07:45', '2017-12-08 07:45', '2017-12-09 07:45'],
-        systolicVals: [132, 129.5, 127.5, 138, 128, 138, 138, 124, 129.5],
-        dystolicVals: [88, 80.5, 81.5, 87, 81.5, 85, 88, 83.5, 84],
-        pulseVals: [62, 63.5, 71.5, 70.5, 68, 70, 65.5, 61.5, 69]
-      }
+      heartData: [
+        {
+          date: '2017/12/01',
+          time: '07:45',
+          systolic: '132',
+          dystolic: '88',
+          pulse: '62'
+        },
+        {
+          date: '2017/12/02',
+          time: '07:45',
+          systolic: '129.5',
+          dystolic: '80.5',
+          pulse: '63.5'
+        },
+        {
+          date: '2017/12/03',
+          time: '07:45',
+          systolic: '127.5',
+          dystolic: '81.5',
+          pulse: '71.5'
+        },
+        {
+          date: '2017/12/04',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '88',
+          pulse: '70.5'
+        },
+        {
+          date: '2017/12/05',
+          time: '07:45',
+          systolic: '128',
+          dystolic: '87',
+          pulse: '68'
+        },
+        {
+          date: '2017/12/06',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '81.5',
+          pulse: '70'
+        },
+        {
+          date: '2017/12/07',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '85',
+          pulse: '65.5'
+        },
+        {
+          date: '2017/12/08',
+          time: '07:45',
+          systolic: '124',
+          dystolic: '83.5',
+          pulse: '61.5'
+        },
+        {
+          date: '2017/12/01',
+          time: '07:45',
+          systolic: '132',
+          dystolic: '88',
+          pulse: '62'
+        },
+        {
+          date: '2017/12/02',
+          time: '07:45',
+          systolic: '129.5',
+          dystolic: '80.5',
+          pulse: '63.5'
+        },
+        {
+          date: '2017/12/03',
+          time: '07:45',
+          systolic: '127.5',
+          dystolic: '81.5',
+          pulse: '71.5'
+        },
+        {
+          date: '2017/12/04',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '88',
+          pulse: '70.5'
+        },
+        {
+          date: '2017/12/05',
+          time: '07:45',
+          systolic: '128',
+          dystolic: '87',
+          pulse: '68'
+        },
+        {
+          date: '2017/12/06',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '81.5',
+          pulse: '70'
+        },
+        {
+          date: '2017/12/07',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '85',
+          pulse: '65.5'
+        },
+        {
+          date: '2017/12/08',
+          time: '07:45',
+          systolic: '124',
+          dystolic: '83.5',
+          pulse: '61.5'
+        },
+        {
+          date: '2017/12/01',
+          time: '07:45',
+          systolic: '132',
+          dystolic: '88',
+          pulse: '62'
+        },
+        {
+          date: '2017/12/02',
+          time: '07:45',
+          systolic: '129.5',
+          dystolic: '80.5',
+          pulse: '63.5'
+        },
+        {
+          date: '2017/12/03',
+          time: '07:45',
+          systolic: '127.5',
+          dystolic: '81.5',
+          pulse: '71.5'
+        },
+        {
+          date: '2017/12/04',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '88',
+          pulse: '70.5'
+        },
+        {
+          date: '2017/12/05',
+          time: '07:45',
+          systolic: '128',
+          dystolic: '87',
+          pulse: '68'
+        },
+        {
+          date: '2017/12/06',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '81.5',
+          pulse: '70'
+        },
+        {
+          date: '2017/12/07',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '85',
+          pulse: '65.5'
+        },
+        {
+          date: '2017/12/08',
+          time: '07:45',
+          systolic: '124',
+          dystolic: '83.5',
+          pulse: '61.5'
+        },
+        {
+          date: '2017/12/05',
+          time: '07:45',
+          systolic: '128',
+          dystolic: '87',
+          pulse: '68'
+        },
+        {
+          date: '2017/12/06',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '81.5',
+          pulse: '70'
+        },
+        {
+          date: '2017/12/07',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '85',
+          pulse: '65.5'
+        },
+        {
+          date: '2017/12/08',
+          time: '07:45',
+          systolic: '124',
+          dystolic: '83.5',
+          pulse: '61.5'
+        },
+        {
+          date: '2017/12/05',
+          time: '07:45',
+          systolic: '128',
+          dystolic: '87',
+          pulse: '68'
+        },
+        {
+          date: '2017/12/06',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '81.5',
+          pulse: '70'
+        },
+        {
+          date: '2017/12/07',
+          time: '07:45',
+          systolic: '138',
+          dystolic: '85',
+          pulse: '65.5'
+        },
+        {
+          date: '2017/12/08',
+          time: '07:45',
+          systolic: '124',
+          dystolic: '83.5',
+          pulse: '61.5'
+        },
+        {
+          date: '2017/12/09',
+          time: '07:45',
+          systolic: '129.5',
+          dystolic: '84',
+          pulse: '69'
+        }
+      ]
     }
   },
   methods: {
@@ -46,22 +273,34 @@ export default {
   },
   mounted () {
     const containerHeight = this.$refs.chartContainer.clientHeight
+    const xAxis = []
+    const systolicVals = []
+    const dystolicVals = []
+    const pulseVals = []
+
+    for (let reading of this.heartData) {
+      xAxis.push(`${reading.date} ${reading.time}`)
+      systolicVals.push(reading.systolic)
+      dystolicVals.push(reading.dystolic)
+      pulseVals.push(reading.pulse)
+    }
+
     const options = {
       data: {
         x: 'x',
-        xFormat: '%Y-%m-%d %H:%M',
+        xFormat: '%Y/%m/%d %H:%M',
         columns: [
-          ['x', ...this.heartData.xAxis],
-          ['Systolic', ...this.heartData.systolicVals],
-          ['Dystolic', ...this.heartData.dystolicVals],
-          ['Pulse', ...this.heartData.pulseVals]
+          ['x', ...xAxis],
+          ['Systolic', ...systolicVals],
+          ['Dystolic', ...dystolicVals],
+          ['Pulse', ...pulseVals]
         ]
       },
       axis: {
         x: {
           type: 'timeseries',
           tick: {
-            format: '%Y-%m-%d %H:%M',
+            format: '%Y/%m/%d %H:%M',
             outer: false
           }
         },
@@ -99,5 +338,10 @@ section#blood-pressure {
 }
 .blood-pressure__data-view {
   flex: 1 1 80%;
+  max-height: 40vh;
+}
+.blood-pressure__data-view--table {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

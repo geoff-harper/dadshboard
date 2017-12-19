@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <BloodPressureTableRow v-for="(row, i) in heartData.xAxis" :key="i" :heartDatum="heartData"></BloodPressureTableRow>
+      <BloodPressureTableRow v-for="(row, i) in heartData" :key="i" :heartDataRow="row"></BloodPressureTableRow>
     </tbody>
   </table>
 </template>

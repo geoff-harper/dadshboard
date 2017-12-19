@@ -1,10 +1,10 @@
 <template>
   <tr>
-    <td>ayy</td>
-    <td>lmao</td>
-    <td>{{ heartDatum.systolicVals }}</td>
-    <td>{{ heartDatum.dystolicVals }}</td>
-    <td>{{ heartDatum.pulseVals }}</td>
+    <td>{{ heartDataRow.date }}</td>
+    <td>{{ heartDataRow.time }}</td>
+    <td>{{ heartDataRow.systolic }}</td>
+    <td>{{ heartDataRow.dystolic }}</td>
+    <td>{{ heartDataRow.pulse }}</td>
   </tr>
 </template>
 
@@ -12,7 +12,7 @@
 export default {
   name: 'BloodPressureTableRow',
   props: {
-    heartDatum: {
+    heartDataRow: {
       type: Object
     }
   },
