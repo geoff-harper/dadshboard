@@ -1,5 +1,6 @@
 <template>
   <section id="reminders" class="card card--small-view">
+    <h1 class="card__title">Reminders</h1>
     <ReminderInput @add="addReminder"></ReminderInput>
     <ul>
       <ReminderItem

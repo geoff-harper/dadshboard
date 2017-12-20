@@ -4,9 +4,9 @@
       <tr>
         <th>Date</th>
         <th>Time</th>
-        <th>Systolic</th>
-        <th>Diastolic</th>
-        <th>Pulse</th>
+        <th class="number-row">Systolic</th>
+        <th class="number-row">Diastolic</th>
+        <th class="number-row">Pulse</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +33,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.blood-pressure__table {
+  
+}
 </style>

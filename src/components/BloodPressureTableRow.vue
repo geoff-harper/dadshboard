@@ -2,9 +2,9 @@
   <tr>
     <td>{{ formatDate() }}</td>
     <td>{{ formatTime() }}</td>
-    <td>{{ heartDataRow.systolic }}</td>
-    <td>{{ heartDataRow.dystolic }}</td>
-    <td>{{ heartDataRow.pulse }}</td>
+    <td class="number-row">{{ heartDataRow.systolic }}</td>
+    <td class="number-row">{{ heartDataRow.diastolic }}</td>
+    <td class="number-row">{{ heartDataRow.pulse }}</td>
   </tr>
 </template>
 

@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $border-colour;
+
+      @include on-event(){
+        background-color: $primary-colour;
+        color: $white;
+      }
+    }
+  }
+  td, th {
+    padding: 10px;
+    text-align: left;
+
+    &:first-child {
+      padding-left: 5px;
+    }
+  }
+
+  .number-row {
+    text-align: right;
+  }
+}

@@ -1,14 +1,17 @@
 <template>
-  <div class="input-container">
-    <input
-      v-model="newReminderText"
-      @keyup.enter="emitReminder"
-      @click="newReminderText = '', hasError = false"
-      :class="['reminder-input', hasError ? 'error' : '']"
-      type="text"
-      placeholder="">
+  <form @submit.prevent="" class="reminder-form">
+    <label class="field-container">
+      Add Reminder
+      <input
+        v-model="newReminderText"
+        @keyup.enter="emitReminder"
+        @click="newReminderText = '', hasError = false"
+        :class="['reminder__field field', hasError ? 'error' : '']"
+        type="text"
+        placeholder="">
+    </label>
     <button @click="emitReminder" class="reminder-add">&plus;</button>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -35,6 +38,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.reminder-form {
+  display: flex;
+  flex-flow: row nowrap;
 
+  .field-container {
+    flex: 1 0 auto;
+  }
+}
 </style>

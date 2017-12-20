@@ -1,5 +1,6 @@
 <template>
   <section id="weather" class="card card--small-view">
+    <h1 class="card__title">Weather</h1>
     <img :src="weather.icon_url" :alt="weather.icon" class="weather__icon">
     <h2 class="weather__condition">{{ weather.conditions }}</h2>
     <p class="weather__temp">{{ weather.high.fahrenheit }}&#8457; / {{ weather.low.fahrenheit }}&#8457;</p>

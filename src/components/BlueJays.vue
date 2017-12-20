@@ -1,5 +1,6 @@
 <template>
   <section id="blue-jays" class="card card--small-view">
+    <h1 class="card__title">Baseball</h1>
     <BlueJaysTeam :team="score.teams[0]"></BlueJaysTeam>
     <BlueJaysTeam :team="score.teams[1]"></BlueJaysTeam>
     <p class="game-status">{{ played ? score.status : `${score.time} ${score.ampm}` }}</p>

@@ -1,10 +1,11 @@
 <template>
   <section id="freezer" class="card card--small-view">
+    <h1 class="card__title">Freezer Stock</h1>
     <table class="stock-table">
       <thead>
         <th>Name</th>
         <th>Size</th>
-        <th>Quantity</th>
+        <th class="number-row">Quantity</th>
         <th></th>
       </thead>
       <FreezerStockRow
@@ -100,7 +101,5 @@ export default {
 </script>
 
 <style>
-table {
-  width: 100%;
-}
+
 </style>

@@ -1,34 +1,49 @@
 <template>
   <form @submit.prevent="" :class="['blood-pressure-form', hasError ? 'error' : '']">
+    <label class="blood-pressure-form__field-container field-container">
+      Date
       <input
         v-model="newDateText"
-        class="blood-pressure-form__field"
+        class="blood-pressure-form__field field"
         type="text"
         placeholder=" ">
+    </label>
+    <label class="blood-pressure-form__field-container field-container">
+      Time
       <input
         v-model="newTimeText"
-        class="blood-pressure-form__field"
+        class="blood-pressure-form__field field"
         type="text"
         placeholder=" ">
+    </label>
+    <label class="blood-pressure-form__field-container field-container">
+      Systolic
       <input
         v-model.number="newSystolicText"
         @click="newSystolicText = null"
-        class="blood-pressure-form__field"
+        class="blood-pressure-form__field field"
         type="text"
         placeholder=" ">
+    </label>
+    <label class="blood-pressure-form__field-container field-container">
+      Diastolic
       <input
-        v-model.number="newDystolicText"
-        @click="newDystolicText = null"
-        class="blood-pressure-form__field"
+        v-model.number="newDiastolicText"
+        @click="newDiastolicText = null"
+        class="blood-pressure-form__field field"
         type="text"
         placeholder=" ">
+    </label>
+    <label class="blood-pressure-form__field-container field-container">
+      Pulse
       <input
         v-model.number="newPulseText"
         @click="newPulseText = null"
-        class="blood-pressure-form__field"
+        class="blood-pressure-form__field field"
         type="text"
         placeholder=" ">
-    <button @click="emitReading" class="reading-add">&plus;</button>
+    </label>
+    <button @click="emitReading" class="blood-pressure-form__button button">&plus;</button>
   </form>
 </template>
 
@@ -42,19 +57,19 @@ export default {
       newDateText: this.setDate(),
       newTimeText: this.setTime(),
       newSystolicText: null,
-      newDystolicText: null,
+      newDiastolicText: null,
       newPulseText: null,
       hasError: false
     }
   },
   methods: {
     emitReading () {
-      if (this.newSystolicText && this.newDystolicText && this.newPulseText !== null) {
+      if (this.newSystolicText && this.newDiastolicText && this.newPulseText !== null) {
         let reading = {
           date: moment(this.newDateText).format('YYYY-MM-DD'),
           time: moment(this.newTimeText, 'h:mm A').format('H:mm'),
           systolic: this.newSystolicText.toFixed(1),
-          dystolic: this.newDystolicText.toFixed(1),
+          diastolic: this.newDiastolicText.toFixed(1),
           pulse: this.newPulseText.toFixed(1)
         }
         this.$emit('add', reading)
@@ -70,6 +85,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~vars';
 
+.blood-pressure-form {
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  &__field-container {
+    flex: 0 0 19%;
+  }
+}
 </style>

@@ -15,6 +15,9 @@ import Weather from './Weather'
 import FreezerStock from './FreezerStock'
 import BloodPressure from './BloodPressure'
 
+import 'normalize.css'
+import '../sass/main.scss'
+
 export default {
   name: 'Dashboard',
   components: {
@@ -32,13 +35,7 @@ export default {
 }
 </script>
 
-<style>
-html {
-  font-family: sans-serif;
-}
-* {
-  box-sizing: border-box;
-}
+<style lang="scss">
 .card-container {
   padding: 20px;
   height: 100vh;
@@ -50,16 +47,5 @@ html {
 .card {
   padding: 20px;
   border: 1px solid #EEE;
-}
-#blood-pressure.card {
-  grid-column: 1 / span 2;
-  grid-row: 1 / 2;
-}
-figure {
-  margin: 0;
-}
-ul {
-  list-style: none;
-  padding: 0;
 }
 </style>

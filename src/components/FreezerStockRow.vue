@@ -1,9 +1,9 @@
 <template>
   <tbody class="stock-row-group">
-    <tr v-for="(variation, i) in type.variations" class="stock-row">
+    <tr v-for="(variation, i) in type.variations" :class="[i === 0 ? 'stock-row--title' : null, 'stock-row']">
       <td>{{ i === 0 ? type.name : null }}</td>
       <td>{{ variation.size }}</td>
-      <td>{{ variation.quantity }}</td>
+      <td class="number-row">{{ variation.quantity }}</td>
       <td>
         <button
           class="stock-row__remove-button"
