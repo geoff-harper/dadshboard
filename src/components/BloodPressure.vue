@@ -35,171 +35,171 @@ export default {
       heartData: [
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         },
         {
           date: '2017-12-02',
-          time: '7:45 AM',
+          time: '19:45',
           systolic: '129.5',
-          dystolic: '80.5',
+          dystolic: '80.0',
           pulse: '63.5'
         },
         {
           date: '2017-12-03',
-          time: '7:45 AM',
+          time: '19:45',
           systolic: '127.5',
           dystolic: '81.5',
           pulse: '71.5'
         },
         {
           date: '2017-12-04',
-          time: '7:45 AM',
-          systolic: '138',
-          dystolic: '88',
+          time: '19:45',
+          systolic: '138.0',
+          dystolic: '88.0',
           pulse: '70.5'
         },
         {
           date: '2017-12-05',
-          time: '7:45 AM',
-          systolic: '128',
-          dystolic: '87',
-          pulse: '68'
+          time: '19:45',
+          systolic: '128.0',
+          dystolic: '87.0',
+          pulse: '68.0'
         },
         {
           date: '2017-12-06',
-          time: '7:45 AM',
-          systolic: '138',
+          time: '19:45',
+          systolic: '138.0',
           dystolic: '81.5',
-          pulse: '70'
+          pulse: '70.0'
         },
         {
           date: '2017-12-07',
-          time: '7:45 AM',
-          systolic: '138',
-          dystolic: '85',
+          time: '19:45',
+          systolic: '138.0',
+          dystolic: '85.0',
           pulse: '65.5'
         },
         {
           date: '2017-12-08',
-          time: '7:45 AM',
-          systolic: '124',
+          time: '19:45',
+          systolic: '124.0',
           dystolic: '83.5',
           pulse: '61.5'
         },
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         },
         {
           date: '2017-12-02',
-          time: '7:45 AM',
+          time: '19:45',
           systolic: '129.5',
           dystolic: '80.5',
           pulse: '63.5'
         },
         {
           date: '2017-12-03',
-          time: '7:45 AM',
+          time: '19:45',
           systolic: '127.5',
           dystolic: '81.5',
           pulse: '71.5'
         },
         {
           date: '2017-12-04',
-          time: '7:45 AM',
-          systolic: '138',
-          dystolic: '88',
+          time: '19:45',
+          systolic: '138.0',
+          dystolic: '88.0',
           pulse: '70.5'
         },
         {
           date: '2017-12-05',
-          time: '7:45 AM',
-          systolic: '128',
-          dystolic: '87',
-          pulse: '68'
+          time: '19:45',
+          systolic: '128.0',
+          dystolic: '87.0',
+          pulse: '68.0'
         },
         {
           date: '2017-12-06',
-          time: '7:45 AM',
-          systolic: '138',
+          time: '19:45',
+          systolic: '138.0',
           dystolic: '81.5',
-          pulse: '70'
+          pulse: '70.0'
         },
         {
           date: '2017-12-07',
-          time: '7:45 AM',
-          systolic: '138',
-          dystolic: '85',
+          time: '19:45',
+          systolic: '138.0',
+          dystolic: '85.0',
           pulse: '65.5'
         },
         {
           date: '2017-12-08',
-          time: '7:45 AM',
-          systolic: '124',
+          time: '19:45',
+          systolic: '124.0',
           dystolic: '83.5',
           pulse: '61.5'
         },
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         },
         {
           date: '2017-12-07',
-          time: '7:45 AM',
-          systolic: '138',
-          dystolic: '85',
+          time: '19:45',
+          systolic: '138.0',
+          dystolic: '85.0',
           pulse: '65.5'
         },
         {
           date: '2017-12-08',
-          time: '7:45 AM',
-          systolic: '124',
+          time: '19:45',
+          systolic: '124.0',
           dystolic: '83.5',
           pulse: '61.5'
         },
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         },
         {
           date: '2017-12-08',
-          time: '7:45 AM',
-          systolic: '124',
+          time: '19:45',
+          systolic: '124.0',
           dystolic: '83.5',
           pulse: '61.5'
         },
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         },
         {
           date: '2017-12-08',
-          time: '7:45 AM',
-          systolic: '124',
+          time: '19:45',
+          systolic: '124.0',
           dystolic: '83.5',
           pulse: '61.5'
         },
         {
           date: '2017-12-01',
-          time: '7:45 AM',
-          systolic: '132',
-          dystolic: '88',
-          pulse: '62'
+          time: '19:45',
+          systolic: '132.0',
+          dystolic: '88.0',
+          pulse: '62.0'
         }
       ]
     }
@@ -229,8 +229,8 @@ export default {
       }
 
       for (let reading of this.heartData) {
-        let formattedTime = reading.time.slice(0, -3)
-        graphData.xAxis.push(`${reading.date} ${formattedTime}`)
+        // let formattedTime = reading.time.slice(0, -3)
+        graphData.xAxis.push(`${reading.date} ${reading.time}`)
         graphData.systolicVals.push(reading.systolic)
         graphData.dystolicVals.push(reading.dystolic)
         graphData.pulseVals.push(reading.pulse)

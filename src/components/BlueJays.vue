@@ -25,7 +25,8 @@ export default {
             loss: '',
             team_city: '',
             team_name: '',
-            team_runs: ''
+            team_runs: '',
+            name_abbrev: ''
           },
           {
             visitiness: 'home',
@@ -33,7 +34,8 @@ export default {
             loss: '',
             team_city: '',
             team_name: '',
-            team_runs: ''
+            team_runs: '',
+            name_abbrev: ''
           }
         ],
         status: '',
@@ -46,7 +48,7 @@ export default {
     getScore () {
       // const date = new Date()
       // const path = `year_${date.getFullYear()}/month_${date.getMonth() + 1}/day_${date.getDate()}/miniscoreboard.json`
-      const path = `year_2017/month_06/day_05/miniscoreboard.json`
+      const path = `year_2017/month_04/day_25/miniscoreboard.json`
       fetch(`http://gd2.mlb.com/components/game/mlb/${path}`)
         .then(async res => {
           let data = await res.json()

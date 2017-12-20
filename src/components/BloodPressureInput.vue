@@ -12,19 +12,19 @@
         placeholder=" ">
       <input
         v-model.number="newSystolicText"
-        @click="newSystolicText = ''"
+        @click="newSystolicText = null"
         class="blood-pressure-form__field"
         type="text"
         placeholder=" ">
       <input
         v-model.number="newDystolicText"
-        @click="newDystolicText = ''"
+        @click="newDystolicText = null"
         class="blood-pressure-form__field"
         type="text"
         placeholder=" ">
       <input
         v-model.number="newPulseText"
-        @click="newPulseText = ''"
+        @click="newPulseText = null"
         class="blood-pressure-form__field"
         type="text"
         placeholder=" ">
@@ -41,25 +41,24 @@ export default {
     return {
       newDateText: this.setDate(),
       newTimeText: this.setTime(),
-      newSystolicText: 0,
-      newDystolicText: 0,
-      newPulseText: 0,
+      newSystolicText: null,
+      newDystolicText: null,
+      newPulseText: null,
       hasError: false
     }
   },
   methods: {
     emitReading () {
-      // console.log(moment(this.newDateText).isValid())
-      // console.log(moment(this.newTimeText, 'h:mm A').isValid())
-      let reading = {
-        date: moment(this.newDateText).format('YYYY-MM-DD'),
-        time: moment(this.newTimeText, 'h:mm A').format('h:mm A'),
-        systolic: this.newSystolicText.toFixed(2),
-        dystolic: this.newDystolicText.toFixed(2),
-        pulse: this.newPulseText.toFixed(2)
+      if (this.newSystolicText && this.newDystolicText && this.newPulseText !== null) {
+        let reading = {
+          date: moment(this.newDateText).format('YYYY-MM-DD'),
+          time: moment(this.newTimeText, 'h:mm A').format('H:mm'),
+          systolic: this.newSystolicText.toFixed(1),
+          dystolic: this.newDystolicText.toFixed(1),
+          pulse: this.newPulseText.toFixed(1)
+        }
+        this.$emit('add', reading)
       }
-
-      this.$emit('add', reading)
     },
     setDate () {
       return moment().format('YYYY-MM-DD')
