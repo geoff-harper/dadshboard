@@ -92,11 +92,10 @@ export default {
       width: 100%;
       
       .field-container {
-        flex: 1 0 auto;;
+        flex: 1 0 10%;
       }
 
       .field {
-        flex: 1 0 20%;
         margin-bottom: 0px;
       }
     }

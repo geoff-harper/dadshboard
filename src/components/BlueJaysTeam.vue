@@ -1,6 +1,6 @@
 <template>
   <div class="score__team">
-    <img :src="`/static/mlb/${team.name_abbrev}.png`" :alt="team.team_name" class="score__team-logo">
+    <img :src="`./static/mlb/${team.name_abbrev}.png`" :alt="team.team_name" class="score__team-logo">
     <div class="score__team-info">
       <h2 class="score__team-name subtitle">{{ team.team_city }} {{ checkAbbrev() ? team.team_name : null }}</h2>
       <p class="score__team-record small-data">{{ team.win }} - {{ team.loss }} <span class="score__gb">{{ team.games_back }}</span></p>
