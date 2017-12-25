@@ -87,15 +87,29 @@ export default {
 
 <style lang="scss">
 @import '~vars';
+@import '~mixins';
 
-.blood-pressure-form {
-  padding-top: 20px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
-
-  &__field-container {
-    flex: 0 0 19%;
+  .blood-pressure-form {
+    padding-top: 20px;
+    
+    .field {
+      margin-bottom: 10px;
+    }
   }
-}
+  
+  @include bp(md) {
+    .blood-pressure-form {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+
+      &__field-container {
+        flex: 0 0 19%;
+        
+        .field {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
 </style>

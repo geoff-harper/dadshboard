@@ -1,22 +1,22 @@
 <template>
   <section id="weather" class="card card--small-view">
-    <h1 class="card__title">Weather</h1>
-    <img :src="weather.icon_url" :alt="weather.icon" class="weather__icon">
-    <h2 class="weather__condition">{{ weather.conditions }}</h2>
-    <p class="weather__temp">{{ weather.high.fahrenheit }}&#8457; / {{ weather.low.fahrenheit }}&#8457;</p>
-    <div class="weather__other">
-      <div class="weather__pop">
-        <h3 class="weather__small-title">Precipitation</h3>
-        {{ weather.pop }}%
-      </div>
-      <div class="weather__humidity">
-        <h3 class="weather__small-title">Humidity</h3>
-        {{ weather.avehumidity }}%
-      </div>
-      <div class="weather__wind">
-        <h3 class="weather__small-title">Wind Conditions</h3>
-        {{ weather.avewind.mph }}m/h {{ weather.avewind.dir }}
-      </div>
+    <h1 class="card__title">Weather</h1>  
+    <div class="weather__main">
+      <img :src="weather.icon_url" :alt="weather.icon" class="weather__icon">
+      <h2 class="weather__condition subtitle">{{ weather.conditions }}</h2>    
+    </div>   
+    <p class="weather__temp">{{ weather.high.fahrenheit }}&deg;F / {{ weather.low.fahrenheit }}&deg;F</p>
+    <div class="weather__pop">
+      <h3 class="weather__small-title small-subtitle">Precipitation</h3>
+      <p class="small-data">{{ weather.pop }}%</p>
+    </div>
+    <div class="weather__humidity">
+      <h3 class="weather__small-title small-subtitle">Humidity</h3>
+      <p class="small-data">{{ weather.avehumidity }}%</p>
+    </div>
+    <div class="weather__wind">
+      <h3 class="weather__small-title small-subtitle">Wind Conditions</h3>
+      <p class="small-data">{{ weather.avewind.mph }}m/h {{ weather.avewind.dir }}</p>
     </div>
   </section>
 </template>
@@ -60,6 +60,52 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss"> 
+@import '~mixins';
 
+.weather__temp {
+  font-size: 42px;
+  line-height: 1em;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 20px;
+}
+  
+.weather__icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.weather__condition {
+  text-align: center;
+}
+  
+  .weather__pop,
+  .weather__humidity,
+  .weather__wind {
+  margin-bottom: 20px;
+  text-align: center;
+}
+  
+@include bp(md) {
+  .weather__temp {
+    text-align: right;
+    margin-bottom: 0px;
+  }
+  
+  .weather__icon {
+    margin: 0;
+  }
+
+  .weather__condition {
+    text-align: left;
+  }
+  
+  .weather__pop,
+  .weather__humidity,
+  .weather__wind {
+    margin-top: 0;
+    text-align: left;
+  }
+}
 </style>

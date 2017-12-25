@@ -3,7 +3,7 @@
     <h1 class="card__title">Baseball</h1>
     <BlueJaysTeam :team="score.teams[0]"></BlueJaysTeam>
     <BlueJaysTeam :team="score.teams[1]"></BlueJaysTeam>
-    <p class="game-status">{{ played ? score.status : `${score.time} ${score.ampm}` }}</p>
+    <h3 class="game-status small-subtitle">{{ played ? score.status : `${score.time} ${score.ampm}` }}</h3>
   </section>
 </template>
 
@@ -49,7 +49,7 @@ export default {
     getScore () {
       // const date = new Date()
       // const path = `year_${date.getFullYear()}/month_${date.getMonth() + 1}/day_${date.getDate()}/miniscoreboard.json`
-      const path = `year_2017/month_04/day_25/miniscoreboard.json`
+      const path = `year_2017/month_04/day_29/miniscoreboard.json`
       fetch(`http://gd2.mlb.com/components/game/mlb/${path}`)
         .then(async res => {
           let data = await res.json()
@@ -80,6 +80,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .game-status {
+    text-align: right;
+  }
 </style>

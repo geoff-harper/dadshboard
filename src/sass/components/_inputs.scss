@@ -1,43 +1,51 @@
 .field-container {
   position: relative;
-  padding: 0 10px;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 13px;
-
-  &:first-of-type {
-    padding-left: 2px;
-
-    &::before {
-      left: 0px;
+  color: $mid-grey;
+  flex: 1 0 auto;
+  
+  @include bp (md) {
+    padding: 0 10px;
+    
+    &::before,
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      width: 2px;
+      height: 0.3em;
+      background-color: $dark-grey;
+      content: '';
     }
-  }
 
-  &::before,
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 8px;
-    width: 2px;
-    height: 0.3em;
-    background-color: $second-colour;
-    content: '';
-  }
+    &::after {
+      right: 8px;
+      left: unset;
+    }
+    
+    &:first-of-type {
+      padding-left: 2px;
 
-  &::after {
-    right: 8px;
-    left: unset;
-  }
+      &::before {
+        left: 0px;
+      }
+    }
+  }  
 }
 
 .field {
   position: relative;
   padding: 0 10px 5px;
   width: 100%;
+  max-width: 100%;
   outline: none;
   border: none;
-  border-bottom: 2px solid $second-colour;
+  border-bottom: 2px solid $dark-grey;
   font-size: 1rem;
+  color: $dark-grey;
+  appearance: none;  
 
   &::before {
     position: absolute;
@@ -45,7 +53,7 @@
     left: 0;
     width: 2px;
     height: 0.3em;
-    background: $second-colour;
+    background: $dark-grey;
     content: '';
   }
 }

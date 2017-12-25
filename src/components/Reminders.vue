@@ -51,6 +51,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  ul {
+    padding-top: 20px;
+  }
 </style>

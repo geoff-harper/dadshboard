@@ -36,7 +36,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'vars': resolve('src/sass/_variables.scss')
+      'vars': resolve('src/sass/_variables.scss'),
+      'mixins': resolve('src/sass/_mixins.scss')
     }
   },
   module: {

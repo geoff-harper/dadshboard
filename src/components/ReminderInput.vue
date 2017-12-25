@@ -10,7 +10,7 @@
         type="text"
         placeholder="">
     </label>
-    <button @click="emitReminder" class="reminder-add">&plus;</button>
+    <button @click="emitReminder" class="reminder-add button">&plus;</button>
   </form>
 </template>
 
@@ -44,7 +44,7 @@ export default {
   flex-flow: row nowrap;
 
   .field-container {
-    flex: 1 0 auto;
+    flex: 1 0 60%;
   }
 }
 </style>

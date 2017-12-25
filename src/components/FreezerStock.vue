@@ -12,9 +12,9 @@
         v-for="type in stock"
         :key="type.id"
         @delete="deleteVariation"
-        :type="type"></FreezerStockRow>
-      <FreezerStockInput @add="addVariation"></FreezerStockInput>
+        :type="type"></FreezerStockRow>      
     </table>
+    <FreezerStockInput @add="addVariation"></FreezerStockInput>
   </section>
 </template>
 
@@ -68,7 +68,7 @@ export default {
       stock: [
         {
           id: ++itemCounter,
-          name: 'Prokchop',
+          name: 'Porkchop',
           variations: [
             {
               size: 'Large',
@@ -100,6 +100,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  #freezer {
+    overflow: hidden;
+  }
+  .stock-table th {
+    padding-bottom: 0px;
+  }
 </style>

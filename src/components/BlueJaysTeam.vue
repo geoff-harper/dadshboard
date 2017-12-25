@@ -2,8 +2,8 @@
   <div class="score__team">
     <img :src="`/assets/mlb/${team.name_abbrev}.png`" :alt="team.team_name" class="score__team-logo">
     <div class="score__team-info">
-      <h2 class="score__team-name">{{ team.team_city }} {{ checkAbbrev() ? team.team_name : null }}</h2>
-      <p class="score__team-record">{{ team.win }} - {{ team.loss }} <span class="score__gb">{{ team.games_back }}</span></p>
+      <h2 class="score__team-name subtitle">{{ team.team_city }} {{ checkAbbrev() ? team.team_name : null }}</h2>
+      <p class="score__team-record small-data">{{ team.win }} - {{ team.loss }} <span class="score__gb">{{ team.games_back }}</span></p>
     </div>
     <div class="score__team-runs">{{ team.team_runs }}</div>
   </div>
@@ -54,14 +54,7 @@ export default {
 }
 </script>
 
-<style>
-.score__team {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 20px;
-  align-items: center;
-  margin-bottom: 20px;
-}
+<style lang="scss">
 .score__team-logo {
   max-width: 100%;
 }
